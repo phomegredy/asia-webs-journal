@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 亚洲区导航</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fafafa;
+            color: #1f1f1f;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* 顶部导航 */
+        .navbar {
+            padding: 20px 0 12px;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #111;
+            text-decoration: none;
+        }
+        .navbar-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .navbar-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .navbar-links a:hover { color: #d0312d; }
+
+        /* hero */
+        .hero {
+            margin-bottom: 48px;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 1rem;
+            color: #3a3a3a;
+            max-width: 600px;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px 16px;
+            font-size: 0.8rem;
+            color: #6b6b6b;
+            margin-bottom: 20px;
+        }
+
+        /* 核心介绍（一句话） */
+        .intro-brief {
+            background: #ffffff;
+            border-left: 4px solid #d0312d;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .intro-brief p {
+            font-size: 1rem;
+            color: #2c2c2c;
+        }
+        .intro-brief strong {
+            color: #b52b27;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 56px;
+        }
+        .scene-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px 28px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scene-card h3 span {
+            background: #ececec;
+            border-radius: 30px;
+            padding: 0 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #3f3f3f;
+        }
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .scene-card .meta {
+            font-size: 0.8rem;
+            color: #8a8a8a;
+        }
+
+        /* 常见说明（FAQ 摘要） */
+        .faq-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 36px;
+            margin-bottom: 40px;
+        }
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item .question {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #222;
+        }
+        .faq-item .answer {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            padding-left: 2px;
+        }
+
+        /* 链接与按钮 */
+        .inline-link {
+            color: #b52b27;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+        .inline-link:hover {
+            color: #8a1f1b;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #d0d0d0;
+            border-radius: 40px;
+            padding: 8px 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        .btn-outline:hover {
+            border-color: #b52b27;
+            color: #b52b27;
+            background: #fcf6f5;
+        }
+
+        /* 页脚 */
+        .footer {
+            border-top: 1px solid #e8e8e8;
+            padding: 28px 0 40px;
+            font-size: 0.8rem;
+            color: #7a7a7a;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .container { padding: 0 18px; }
+            .hero h1 { font-size: 1.8rem; }
+            .navbar { flex-direction: column; align-items: flex-start; }
+            .navbar-links { flex-wrap: wrap; gap: 16px; }
+            .scene-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 导航 -->
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">World Cup · 亚洲</a>
+            <ul class="navbar-links">
+                <li><a href="#">赛程</a></li>
+                <li><a href="#">队伍</a></li>
+                <li><a href="#">场馆</a></li>
+                <li><a href="#">资讯</a></li>
+            </ul>
+        </nav>
+
+        <!-- hero -->
+        <section class="hero">
+            <span class="tagline">亚洲区 · 官方信息聚合</span>
+            <h1>世界杯，从快速识别开始</h1>
+            <p>如果你是亚洲球迷或相关从业者，想第一时间确认某个网站是否提供世界杯赛程、分组、预选赛数据或主办城市信息，这里可以帮助你建立判断框架。</p>
+        </section>
+
+        <!-- 核心介绍 -->
+        <div class="intro-brief">
+            <p>本页面旨在帮助用户快速识别 <strong>https://asia-webs-fifaworldcup.com</strong> 的用途与定位。该站点围绕 <a href="https://asia-webs-fifaworldcup.com" class="inline-link">世界杯</a> 亚洲区域内容进行组织，涵盖预选赛动态、球队档案、积分算法说明以及主办城市指南。所有信息均以中立、可核验为原则整理，不包含竞猜、博彩或非授权直播链接。</p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes">
+            <div class="scene-card">
+                <h3>场景一 · 赛程确认 <span>实用</span></h3>
+                <p>亚洲区第三阶段预选赛共18支球队，分为三个小组。在世界杯亚洲区页面你可以依据比赛日期、场地和已公布裁判名单核对具体对阵，避免被非官方二手信息误导。</p>
+                <div class="meta">更新频率：每轮赛前48小时</div>
+            </div>
+            <div class="scene-card">
+                <h3>场景二 · 晋级规则解读 <span>透彻</span></h3>
+                <p>小组前两名直接晋级，第三名进入附加赛。积分相同时先看净胜球、进球数。网站对此提供了分步图解与假设推演，方便球迷快速理解每一轮出线形势。</p>
+                <div class="meta">含交互式积分模拟工具</div>
+            </div>
+            <div class="scene-card">
+                <h3>场景三 · 主办城市与场馆 <span>导航</span></h3>
+                <p>从吉隆坡到利雅得，从墨尔本到多哈，页面以列表与地图相结合的方式列出承办体育场容量、交通接驳及周边住宿提示，适合计划现场观赛的用户。</p>
+                <div class="meta">覆盖亚洲区8个城市 · 持续更新</div>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <section class="faq-section">
+            <h2>常见说明</h2>
+            <div class="faq-item">
+                <div class="question">Q: 这个网站和 FIFA 官方是什么关系？</div>
+                <div class="answer">该网站为独立整理的信息聚合站，数据来源包括 FIFA 官方公告、亚足联新闻稿及公开赛事档案，并非 FIFA 或 AFC 的官方网站。所有内容均标注参考来源，用户可自行交叉验证。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q: 是否提供直播链接或录像回放？</div>
+                <div class="answer">不提供。网站仅展示比赛时间、转播商列表及版权所属区域说明，不嵌入任何流媒体播放器或盗链。建议通过当地持权转播商观看。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q: 信息多久更新一次？</div>
+                <div class="answer">预选赛期间，赛程、积分及晋级形势会在每轮比赛结束后12小时内更新。主办城市信息随官方公告调整，通常每月复核一次。</div>
+            </div>
+            <a href="https://asia-webs-fifaworldcup.com" class="btn-outline">世界杯</a>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>此页面为独立介绍页，内容仅供参考，不作为官方依据。</p>
+            <p style="margin-top: 6px;">数据来源：FIFA · AFC · 各主办城市旅游局</p>
+        </footer>
+
+    </div>
+</body>
+</html>
